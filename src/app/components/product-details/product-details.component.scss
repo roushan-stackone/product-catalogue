@@ -1,0 +1,37 @@
+@import '../../../scss/animations.scss';
+@import '../../../scss/variables.scss';
+
+.row {
+
+    padding: 5% 0;
+    gap: 30px 0;
+
+    .product-image-container {
+
+        background-color: #fff;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3% 0;
+        min-height: 300px;
+        box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+
+        animation-name: fadeRight;
+        animation-duration: 0.5s;
+
+        .product-image {
+            width: 200px;
+        }
+    }
+
+    .product-details-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 0 3%;
+
+        animation-name: fadeLeft;
+        animation-duration: 0.5s;
+    }
+}

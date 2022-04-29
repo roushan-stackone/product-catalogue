@@ -1,0 +1,39 @@
+<section class="container">
+
+    <div *ngIf="!product" class="spinner-container mt-5">
+        <mat-spinner [diameter]="30"></mat-spinner>
+    </div>
+
+    <div *ngIf="product" class="row">
+
+        <div class="col-lg-4 product-image-container">
+
+            <div>
+                <img class="product-image" [src]="product?.image" alt="">
+            </div>
+
+        </div>
+
+        <div class="col-lg-8 product-details-container">
+
+            <h3>{{product?.title}}</h3>
+            <p>{{product?.description}}</p>
+
+            <h6>Rating: <strong>{{product?.rating?.rate}}</strong></h6>
+
+            <h4>{{product?.price | currency: 'GBP'}}</h4>
+
+            <div>
+                <button (click)="addToCart(product)" class="btn btn-styled">
+                    <div class="btn-content">
+                        <mat-icon>add</mat-icon>
+                        Add to cart
+                    </div>
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

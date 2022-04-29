@@ -1,0 +1,50 @@
+<section class="container">
+
+    <div *ngIf="!products" class="spinner-container mt-5">
+        <mat-spinner [diameter]="30"></mat-spinner>
+    </div>
+
+    <div *ngIf="products" class="row">
+
+        <ng-container *ngFor="let product of products">
+
+            <div class="product-container col-sm-6 col-md-4 col-lg-3">
+
+                <div class="product-card">
+
+                    <div (click)="router.navigate(['products', product.id])" class="product-image-container">
+                        <img [src]="product.image" alt="">
+                    </div>
+
+                    <div class="product-title-container">
+                        <p (click)="router.navigate(['products', product.id])">{{ product.title }}</p>
+                    </div>
+
+                    <div class="product-details-container">
+                        <h5>{{product.price | currency: 'GBP'}}</h5>
+                        <div class="product-rating">
+                            <p>Rating:</p>
+                            <div class="d-flex">
+                                <strong>{{product.rating.rate}}</strong>
+                                <mat-icon class="mt-1">star</mat-icon>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <button (click)="addToCart(product)" class="btn btn-styled">
+                        <div class="btn-content">
+                            <mat-icon>add</mat-icon>
+                            Add to cart
+                        </div>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </ng-container>
+    </div>
+
+</section>

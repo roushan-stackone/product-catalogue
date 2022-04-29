@@ -1,0 +1,30 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" routerLink="/products">SHØP</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link d-flex active" style="gap: 0 8px;" aria-current="page" routerLink="/products">
+                        <mat-icon>style</mat-icon>
+                        <div class="nav-link-title">Products</div>
+                    </a>
+                </li>
+            </ul>
+            <div class="d-flex">
+
+                <button routerLink="/cart" class="icon-button d-flex" style="gap: 0 8px;">
+                    <mat-icon [matBadge]="NumberOfProductsInCart > 0 ? NumberOfProductsInCart : ''"
+                        matBadgePosition="after">
+                        shopping_cart
+                    </mat-icon>
+                    Cart
+                </button>
+
+            </div>
+        </div>
+    </div>
+</nav>

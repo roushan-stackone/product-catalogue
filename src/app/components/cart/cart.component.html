@@ -1,0 +1,58 @@
+<section class="container">
+
+    <div class="heading-row">
+        <h3>Your cart</h3>
+        <div>
+            <button class="btn btn-styled" routerLink="/products">
+                <div class="btn-content">
+                    <mat-icon>arrow_back</mat-icon>
+                    Back
+                </div>
+            </button>
+        </div>
+    </div>
+
+
+    <div class="empty-cart-div mt-4" *ngIf="cartProducts && cartProducts.length === 0">
+        <h4>Your cart is empty, go shopping</h4>
+        <div>
+            <button class="btn btn-styled" routerLink="/products">
+                <div class="btn-content">
+                    <mat-icon>style</mat-icon>
+                    View products
+                </div>
+            </button>
+        </div>
+
+    </div>
+
+    <ng-container *ngFor="let product of cartProducts">
+
+        <div class="row">
+
+            <div class="col-lg-2 cart-product-image-container">
+                <img class="cart-product-image" [src]="product?.image" alt="">
+            </div>
+
+
+            <div class="col-lg-10 cart-product-details">
+
+                <p class="cart-product-title" (click)="router.navigate(['products', product.id])">
+                    {{product?.title}}
+                </p>
+
+
+                <div class="d-flex">
+                    <span>{{product.rating.rate}}</span>
+                    <mat-icon class="mt-1 ml-2">star</mat-icon>
+                </div>
+
+
+
+                <h5>{{product?.price | currency: 'GBP'}}</h5>
+
+            </div>
+        </div>
+
+    </ng-container>
+</section>
