@@ -26,7 +26,7 @@ export class ProductsListComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    // getting prducts list
+    // getting the products list
     this.getProducts();
   }
 
@@ -64,5 +64,5 @@ export class ProductsListComponent implements OnInit, OnDestroy {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }
-  
+
 }

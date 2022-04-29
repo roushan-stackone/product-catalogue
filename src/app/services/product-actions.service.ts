@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 })
 export class ProductActionsService {
 
-  //initializing empty cart
+  // initializing empty cart
   private cartItems: any[] = [];
 
   public addedItems = new BehaviorSubject<any>(this.cartItems);
@@ -17,7 +17,7 @@ export class ProductActionsService {
     this.addedItems.next(this.cartItems);
   }
 
-  //removing product from the cart and updating the subscribers
+  // removing product from the cart and updating the subscribers
   public removeFromCart(product: any) {
     this.cartItems.splice(product);
     this.addedItems.next(this.cartItems);

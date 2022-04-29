@@ -23,7 +23,7 @@ export class ProductsRestService {
     return this.http.get(`https://fakestoreapi.com/products/${productId}`);
   }
 
-  //handle http error and navigate to error placeholder page
+  // handle http error and navigate to error placeholder page
   public handleHttpError(error: HttpErrorResponse) {
     console.log(error);
     this.router.navigate(['/error']);
