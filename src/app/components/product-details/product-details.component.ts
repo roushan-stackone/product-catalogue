@@ -44,7 +44,11 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
       .subscribe(product => {
         this.product = product;
         console.log(this.product);
-      });
+      },
+        error => {
+          this.productsRestService.handleHttpError(error);
+        }
+      );
   }
 
   // adds item to the cart

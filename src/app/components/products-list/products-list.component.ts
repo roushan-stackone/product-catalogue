@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
@@ -15,6 +16,7 @@ export class ProductsListComponent implements OnInit, OnDestroy {
 
   protected ngUnsubscribe = new Subject();
   public products: any[];
+  public error: HttpErrorResponse;
 
   constructor(
     private productsRestService: ProductsRestService,
@@ -35,8 +37,11 @@ export class ProductsListComponent implements OnInit, OnDestroy {
       .subscribe(products => {
         this.products = products;
         console.log(this.products);
-
-      });
+      },
+        error => {
+          this.productsRestService.handleHttpError(error);
+        }
+      );
   }
 
   // adds product to the cart
@@ -59,4 +64,5 @@ export class ProductsListComponent implements OnInit, OnDestroy {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }
+  
 }

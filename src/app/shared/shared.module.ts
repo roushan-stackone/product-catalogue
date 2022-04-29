@@ -6,9 +6,10 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatIconModule } from '@angular/material';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ErrorPlaceholderComponent } from './components/error-placeholder/error-placeholder.component';
 
 @NgModule({
-  declarations: [HeaderComponent],
+  declarations: [HeaderComponent, ErrorPlaceholderComponent],
   imports: [
     CommonModule,
     RouterModule,
